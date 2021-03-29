@@ -6,7 +6,7 @@ import (
 	"os"
 )
 
-// dup1 输出标准输入中出现次数大于1的行，前面是次数
+// dup1 输出标准输入中出现次数大于1的行，第一个参数是重复的值，第二个参数是出现的次数
 func main() {
 	counts := make(map[string]int)
 	input := bufio.NewScanner(os.Stdin) // 从程序的标准输入进行读取
