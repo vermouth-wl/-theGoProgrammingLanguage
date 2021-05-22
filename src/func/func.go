@@ -16,7 +16,9 @@ func manyParam(a, b int) (c, d int) {
 }
 
 func main() {
-	fmt.Printf("调用函数 add() 的执行结果为: %v\n", add(1, 3))
+	first := 2
+	last := 3
+	fmt.Printf("调用函数 add() 的执行结果为: %v\n", add(first, last))
 
 	fmt.Println()
 
@@ -26,4 +28,8 @@ func main() {
 
 	fmt.Printf("调用函数 manyParam() 的执行结果为: %d + %d = %d\n", a, b, x)
 	fmt.Printf("调用函数 manyParam() 的执行结果为: %d x %d = %d\n", a, b, y)
+
+	func() {
+		fmt.Println("匿名函数启动")
+	}()
 }
