@@ -18,6 +18,8 @@ func myPrintf(args ...interface{}) {
 			fmt.Println(arg, "是一个float32类型的值")
 		case float64:
 			fmt.Println(arg, "是一个float64类型的值")
+		case complex128:
+			fmt.Println(arg, "是一个complex64类型的值")
 		default:
 			fmt.Println("未知类型")
 		}
