@@ -13,7 +13,7 @@ func running1() {
 	// 构建一个无限循环，times每隔1秒+1
 	for {
 		times++
-		fmt.Println("协程1", times)
+		fmt.Println("协程1执行到了: ", times)
 
 		// 延时1秒
 		time.Sleep(time.Second)
@@ -28,7 +28,7 @@ func running2() {
 	// 构建一个无限循环，times每隔1秒+1
 	for {
 		times++
-		fmt.Println("协程2", times)
+		fmt.Println("协程2执行到了: ", times)
 
 		// 延时1秒
 		time.Sleep(time.Second)
