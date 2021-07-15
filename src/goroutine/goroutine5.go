@@ -37,4 +37,5 @@ func main() {
 
 	wg5.Wait()
 	fmt.Println(counter5)
+	fmt.Println(runtime.GOMAXPROCS(runtime.NumCPU()))
 }
