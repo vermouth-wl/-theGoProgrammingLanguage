@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"time"
 )
 
 // 通道channel的使用
@@ -18,6 +19,7 @@ func main() {
 		// 往main的goroutine中发送user信息
 		for _, user := range users {
 			ch <- user
+			time.Sleep(time.Second)
 		}
 		fmt.Println("结束协程")
 	}()
