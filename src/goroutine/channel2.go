@@ -12,7 +12,7 @@ func printer(c chan string) {
 	for {
 		// 从channel中获取一个数据
 		data := <-c
-		// 将data视为奥特曼时结束
+		// 当data没数据时结束
 		if data == "" {
 			break
 		}

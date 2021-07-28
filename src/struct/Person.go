@@ -31,9 +31,9 @@ func main() {
 		500384200402087215,
 	}
 	p.printMess()       // 打印结构体信息
-	p.changeName("苦艾酒") // 使用指针类型修改数据并打印信息
+	p.changeName("苦艾酒") // 使用指针类型修改数据并打印信息，可以修改原结果
 	p.printMess()
 
-	p.changeName2("王磊") // 使用非指针类型修改数据并打印信息
+	p.changeName2("王磊") // 使用非指针类型修改数据并打印信息，对原结果并无影响
 	p.printMess()
 }
