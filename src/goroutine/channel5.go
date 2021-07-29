@@ -18,13 +18,16 @@ func main() {
 
 	// 创建一个无缓冲的string类型的通道
 	ch2 := make(chan string)
-	// 发送string型元素到通道
-	ch2 <- "王磊"
-	ch2 <- "神乐"
+	go func() {
+		// 发送string型元素到通道
+		ch2 <- "王磊"
+		ch2 <- "神乐"
+	}()
+
 	// 接收数据，无缓冲不接收会报错
 	for data := range ch2 {
 		fmt.Println(data)
-		if data == "" {
+		if data == "神乐" {
 			break
 		}
 	}
