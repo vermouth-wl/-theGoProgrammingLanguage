@@ -23,7 +23,7 @@ func fix(x int) int {
 
 func main() {
 	go spinner(100 * time.Millisecond)
-	const n = 45
+	const n = 100
 	fibN := fix(n)
 	fmt.Printf("\rFibonacci(%d) = %d\n", n, fibN)
 }
