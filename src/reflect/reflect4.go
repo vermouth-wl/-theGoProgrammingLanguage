@@ -53,8 +53,8 @@ func main() {
 	fmt.Println("------------------------------------------------------------------")
 
 	/**
-	* 类型对象reflect.StructField和reflect.Method
-	 */
+	类型对象reflect.StructField和reflect.Method
+	*/
 	// 通过NumField 获取结构体字段的数量
 
 	for i := 0; i < typeOfHero.NumField(); i++ {
@@ -87,6 +87,9 @@ func main() {
 
 	fmt.Println("------------------------------------------------------------------")
 
+	/**
+	使用反射对象设定变量
+	*/
 	// 判断一个变量的Value是否可寻址, 反射修改字段必须满足指针和Elem()方法两个条件
 	name := "小贝尔"
 	valueOfName := reflect.ValueOf(name)
@@ -113,4 +116,22 @@ func main() {
 	fmt.Printf("贝尔摩德修改后的名字是 %s\n", kagura.Name)
 
 	fmt.Println("------------------------------------------------------------------")
+
+	/**
+	使用放射调用接口方法
+	*/
+	var person2 Person = &Hero{
+		Name:  "小红",
+		Speed: 100,
+	}
+	valueOfPerson := reflect.ValueOf(person2)
+	// 获取SayHello()方法
+	sayHelloMethod := valueOfPerson.MethodByName("SayHello")
+	// 构建调用参数并通过Call调用方法
+	sayHelloMethod.Call([]reflect.Value{reflect.ValueOf("小张")})
+	// 获取Run()方法
+	runMethod := valueOfPerson.MethodByName("Run")
+	// 通过Call调用并获取结果
+	result := runMethod.Call([]reflect.Value{})
+	fmt.Printf("执行Run()方法的结果是 %s\n", result[0])
 }
