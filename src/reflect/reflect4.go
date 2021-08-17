@@ -98,4 +98,19 @@ func main() {
 
 	fmt.Println("------------------------------------------------------------------")
 
+	kagura := &Hero{
+		Name:  "贝尔摩德",
+		Age:   17,
+		Speed: 200,
+	}
+
+	valueOfKagura := reflect.ValueOf(kagura).Elem()
+	valueOfName = valueOfKagura.FieldByName("Name")
+	// 判断字段的Value是否可以设定变量值
+	if valueOfName.CanSet() {
+		valueOfName.Set(reflect.ValueOf("凌之轩家的小贝尔"))
+	}
+	fmt.Printf("贝尔摩德修改后的名字是 %s\n", kagura.Name)
+
+	fmt.Println("------------------------------------------------------------------")
 }
