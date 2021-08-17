@@ -50,4 +50,19 @@ func main() {
 	typeOfHero = typeOfPtrHero.Elem()
 	fmt.Printf("typeOfPtrHero elem到 typeOfHero, Hero的类型是 %s, 种类是 %s\n", typeOfHero, typeOfHero.Kind())
 
+	/**
+	* 类型对象reflect.StructField和reflect.Method
+	 */
+	// 通过NumField 获取结构体字段的数量
+
+	for i := 0; i < typeOfHero.NumField(); i++ {
+		fmt.Printf("field' name is %s, type is %s, Kind is %s\n",
+			typeOfHero.Field(i).Name,
+			typeOfHero.Field(i).Type,
+			typeOfHero.Field(i).Type.Kind())
+	}
+	// 获取名称为Name的成员字段的类型对象
+	nameField, _ := typeOfHero.FieldByName("Name")
+	fmt.Printf("field' name is %s, type is %s, Kind is %s\n", nameField.Name, nameField.Type, nameField.Type.Kind())
+
 }
