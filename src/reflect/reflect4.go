@@ -26,7 +26,7 @@ func (hero *Hero) SayHello(name string) {
 }
 
 func (hero *Hero) Run() string {
-	fmt.Println("我正在跑步，目前速度是: ", string(hero.Speed))
+	fmt.Println("我正在跑步，目前速度是: ", hero.Speed)
 	return "Running"
 }
 
