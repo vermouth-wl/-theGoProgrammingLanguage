@@ -50,6 +50,8 @@ func main() {
 	typeOfHero = typeOfPtrHero.Elem()
 	fmt.Printf("typeOfPtrHero elem到 typeOfHero, Hero的类型是 %s, 种类是 %s\n", typeOfHero, typeOfHero.Kind())
 
+	fmt.Println("------------------------------------------------------------------")
+
 	/**
 	* 类型对象reflect.StructField和reflect.Method
 	 */
@@ -65,4 +67,21 @@ func main() {
 	nameField, _ := typeOfHero.FieldByName("Name")
 	fmt.Printf("field' name is %s, type is %s, Kind is %s\n", nameField.Name, nameField.Type, nameField.Type.Kind())
 
+	fmt.Println("------------------------------------------------------------------")
+
+	// 通过MethodField 获取结构体方法数量
+
+	// 声明一个Person接口，并用 Hero 作为接收器
+	var person Person = &Hero{}
+	// 获取接口Person的类型对象
+	typeOfPerson := reflect.TypeOf(person)
+	// 打印Person的方法类型和名称
+	for i := 0; i < typeOfPerson.NumMethod(); i++ {
+		fmt.Printf("方法是 %s, 类型是 %s, 种类是 %s\n",
+			typeOfPerson.Method(i).Name,
+			typeOfPerson.Method(i).Type,
+			typeOfPerson.Method(i).Type.Kind())
+	}
+	method, _ := typeOfPerson.MethodByName("Run")
+	fmt.Printf("方法是 %s, 类型是 %s, 种类是 %s\n", method.Name, method.Type, method.Type.Kind())
 }
