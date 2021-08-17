@@ -84,4 +84,18 @@ func main() {
 	}
 	method, _ := typeOfPerson.MethodByName("Run")
 	fmt.Printf("方法是 %s, 类型是 %s, 种类是 %s\n", method.Name, method.Type, method.Type.Kind())
+
+	fmt.Println("------------------------------------------------------------------")
+
+	// 判断一个变量的Value是否可寻址, 反射修改字段必须满足指针和Elem()方法两个条件
+	name := "小贝尔"
+	valueOfName := reflect.ValueOf(name)
+	fmt.Printf("name 可以被寻址: %t\n", valueOfName.CanAddr())
+	valueOfName = reflect.ValueOf(&name)
+	fmt.Printf("name 可以被寻址: %t\n", valueOfName.CanAddr())
+	valueOfName = valueOfName.Elem()
+	fmt.Printf("name 可以被寻址: %t\n", valueOfName.CanAddr())
+
+	fmt.Println("------------------------------------------------------------------")
+
 }
